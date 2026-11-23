@@ -662,6 +662,7 @@ footer p{font-size:17px;color:var(--lilac);font-style:italic;margin-top:8px}
     if (cover.classList.contains("open")) return;
     window.scrollTo({ top: 0, left: 0, behavior: "instant" }); // always start from the top
     cover.classList.add("open");
+    try { song.currentTime = 0; } catch (e) {}                  // always from the very beginning
     song.volume = .8; song.play().catch(() => setMuted(true)); // music starts with the guest's tap
     mute.hidden = false;
     document.body.classList.remove("locked");
